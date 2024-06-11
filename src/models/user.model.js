@@ -38,7 +38,7 @@ const userSchema = new Schema({
   is_admin: {
     type: Boolean
   }
-});
+}, {timestamps: true});
 
 // encrypting password
 userSchema.pre("save", async function (next) {
