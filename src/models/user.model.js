@@ -35,8 +35,10 @@ const userSchema = new Schema({
   refreshToken: {
     type: String
   },
-  is_admin: {
-    type: Boolean
+  role: { 
+    type: String, 
+    enum: ["admin", "user"], 
+    required: true 
   }
 }, {timestamps: true});
 
