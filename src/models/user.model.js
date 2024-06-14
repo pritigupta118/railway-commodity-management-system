@@ -40,7 +40,7 @@ const userSchema = new Schema({
     enum: ["admin", "user"], 
     required: true 
   }
-}, {timestamps: true});
+});
 
 // encrypting password
 userSchema.pre("save", async function (next) {
