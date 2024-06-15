@@ -6,6 +6,6 @@ const router = Router()
 router.route("/create-commodity").post(createCommodity)
 router.route("/").get(getAllCommodities)
 router.route("/:id").get(getCommodity)
-router.route('/del/:id').get(deleteCommodity)
+router.route('/').delete(deleteCommodity)
 
 export default router

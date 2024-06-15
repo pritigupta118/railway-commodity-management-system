@@ -10,25 +10,36 @@ const trainSchema = new Schema({
   },
   trainNumber: {
     type: String,
-    required: true
+    required: true,
+    unique: true
   },
   maxLoad: {
      type: Number,
-     required: true
+     required: true,
   },
-  routes: [{
-     type: mongoose.Schema.Types.ObjectId,
-     ref: "Route",
-
-  }],
+  startPoint: {
+    type : mongoose.Schema.Types.ObjectId,
+    ref: "Station",
+    required: true
+  },
+  destination: {
+    type : mongoose.Schema.Types.ObjectId,
+    ref: "Station",
+    required: true
+  },
+  startDate: {
+    type: Date,
+    required: true
+  }, 
+  reachDate: {
+  type: Date,
+  required: true
+  },
   price: {
     type: Number,
     required: true
   }
 },
-{
-  timestamps: true
-}
 )
 
 export const Train = mongoose.model("Train", trainSchema)

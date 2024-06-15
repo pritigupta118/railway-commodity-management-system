@@ -55,7 +55,7 @@ const getCommodity = asyncHandler(async(req, res) => {
 
 // Delete a commodity
 const deleteCommodity = asyncHandler(async(req,res) => {
-  const {id} = req.params
+  const {id} = req.body
   const commodity = await Commodity.findById(id)
   if (!commodity) {
     throw new ApiError(404, "Commodity not found")

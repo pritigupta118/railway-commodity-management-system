@@ -61,7 +61,7 @@ const getStation = asyncHandler(async(req, res) => {
 
 // Delete a Station
 const deleteStation = asyncHandler(async(req,res) => {
-  const {id} = req.params
+  const {id} = req.body
   const station = await Station.findById(id)
   if (!station) {
     throw new ApiError(404, "Station not found")

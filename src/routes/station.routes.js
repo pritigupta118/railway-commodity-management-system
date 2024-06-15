@@ -6,5 +6,5 @@ const router = Router()
 router.route('/create-station').post(createStation)
 router.route('/').get(getAllStations)
 router.route('/:id').get(getStation)
-router.route('/del/:id').get(deleteStation)
+router.route('/').delete(deleteStation)
 export default router
