@@ -6,20 +6,22 @@ const bookingSchema = new Schema({
     ref: 'User',
     required: true
   },
-  shipment: {
+
+  train: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: "Shipment",
-    required: true
+    ref: 'Train',
+    required: true,
+    unique: true
   },
-  status: {
-    type: String,
-    enum: ['confirmed', 'cancelled'],
-    required: true
+
+  commodity: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Commodity',
+    required: true,
+    unique: true
   }
 },
-  {
-    timestamps: true
-  }
+
 );
 
 export const Booking = mongoose.model('Booking', bookingSchema);

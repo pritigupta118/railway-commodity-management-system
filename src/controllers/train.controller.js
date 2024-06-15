@@ -29,7 +29,7 @@ const newTrain = asyncHandler(async(req,res) => {
     destination, 
     startDate, 
     reachDate, 
-    price
+    price,
   })
 
     //return res
@@ -47,7 +47,7 @@ const getTrain = asyncHandler(async(req,res) => {
     throw new ApiError(400, "Please provide the train id")
    }
 
-  const foundTrain = await Train.findOne({_id: id}).populate("startPoint destination", "name")
+  const foundTrain = await Train.findOne({_id: id}).populate("startPoint destination", "name").populate("users").populate("commodities")
   if (!foundTrain) {
     throw new ApiError(404, "Train is not available")
   }
@@ -59,7 +59,7 @@ const getTrain = asyncHandler(async(req,res) => {
 
 // get all trains
 const getAllTrains = asyncHandler(async(req,res) => {
-  const trains = await Train.find().populate("startPoint destination", "name")
+  const trains = await Train.find().populate("startPoint destination", "name").populate("users").populate("commodities")
   return res.status(200).json(new ApiResponse(200, trains, "Trains fetched successfully"))
 })
 

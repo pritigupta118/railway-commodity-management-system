@@ -38,7 +38,7 @@ const trainSchema = new Schema({
   price: {
     type: Number,
     required: true
-  }
+  },
 },
 )
 
