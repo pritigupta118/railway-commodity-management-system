@@ -17,9 +17,12 @@ app.use(cookieParser())
 //import router
 import userRouter from "./routes/user.routes.js"
 import stationRouter from "./routes/station.routes.js"
+import commodityRouter from "./routes/commodity.routes.js"
 
 //routes declaration
 app.use("/api/v1/users", userRouter)
 app.use("/api/v1/stations", stationRouter)
+app.use("/api/v1/commodities", commodityRouter)
+
 
 export {app}
